@@ -1,25 +1,30 @@
+import time
+
 beef_burgers = {
     'Cheeseburger': 4.99,
+    'Double Cheeseburger': 5.50,
+    'The Clogger': 6.70
 }
 
 total_order = []          
 total_order_prices = []   
 
+def acurrency(x):
+    return f"${x:.2f}"
 
 def menu():
     print('--- Beef Burger Menu ---')
-    print(f"1. Cheeseburger for ${beef_burgers['Cheeseburger']}")
-    print('2. Go to checkout.')
+    print(f"1. Cheeseburger for {acurrency(beef_burgers['Cheeseburger'])}")
+    print(f"2. Double Cheeseburger for {acurrency(beef_burgers['Double Cheeseburger'])}")
+    print(f"3. The Clogger for {acurrency(beef_burgers['The Clogger'])}")
+    print('4. Go to checkout.')
 
 
 def customer_order():
         order = input('Select what you would like to order: ')
   
         if order == 1:
-
-        elif
-
-        else 
+            print("sdfg")
 
 def check_out():
     print('\n--- Your Order Summary ---')
