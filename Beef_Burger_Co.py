@@ -30,34 +30,58 @@ def addbugr(choice):
             total_order[choice] = 1
     else:
             total_order[choice] += 1
-    total_order_prices = total_order_prices + 4.99
+    total_order_prices = total_order_prices + beef_burgers[choice]
     total_order_prices = round(total_order_prices, 2)
     print(f"understood your full order at the moment is {prettyprint(total_order)} ")
-    print(f"your order price at the moment is {total_order_prices} ")
+    print(f"your order price at the moment is {acurrency(total_order_prices)} ")
     customer_order()    
      
 
 def customer_order():
         global total_order, total_order_prices
-        order = int(input('Select what you would like to order: '))
+        order = input('Select what you would like to order: ')
   
-        if order == 1:
+        if order == "1":
             addbugr('Cheeseburger')
-        if order == 2:
+        elif order == "2":
             addbugr('Double Cheeseburger')
-        if order == 3:
+        elif order == "3":
             addbugr('The Clogger')
+        elif order == "4":
+            if not total_order:
+                 print("\nyou cant order nothing\n")
+                 customer_order()
+            else:
+                check_out()
         else:
              print("\nthats not an option\n")
              menu()
-             print(f"your order currently contains{total_order}")
+             print(f"your order currently contains{prettyprint(total_order)}")
              customer_order()
 
 def check_out():
     print('\n--- Your Order Summary ---')
+    print(f"you have ordered {prettyprint(total_order)}")
+    print(f"your total is {total_order_prices}")
+    is_it_correct = input("1. Yes\n2. No\nis this correct?")
+    if is_it_correct == "1":
+        print("thank you for eating at Beef Burger Co\nhave a great day :)\n\nyour order will be ready in")
+    elif is_it_correct == "2":
+         print("understood")
+         menu()
+         customer_order()
+    else:
+        print("please use a proper option")
+        check_out()
+    
+start_time = time.time()
+time.sleep(1)
+end_time = time.time()
 
-
+print(end_time - start_time)
+a = round(end_time - start_time)
+print(a)
 print('Welcome to the Beef Burger Co. menu!')
 menu()
 customer_order()
-check_out()
+
