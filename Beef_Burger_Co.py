@@ -65,7 +65,10 @@ def check_out():
     print(f"your total is {total_order_prices}")
     is_it_correct = input("1. Yes\n2. No\nis this correct?")
     if is_it_correct == "1":
-        print("thank you for eating at Beef Burger Co\nhave a great day :)\n\nyour order will be ready in")
+        end_time = time.time()
+        timered = round(end_time - start_time)
+        w_a_i_t = timered/10
+        print(f"thank you for eating at Beef Burger Co\nhave a great day :)\n\nyour order will be ready in {round(w_a_i_t)} minutes")
     elif is_it_correct == "2":
          print("understood")
          menu()
@@ -73,14 +76,9 @@ def check_out():
     else:
         print("please use a proper option")
         check_out()
-    
-start_time = time.time()
-time.sleep(1)
-end_time = time.time()
 
-print(end_time - start_time)
-a = round(end_time - start_time)
-print(a)
+
+start_time = time.time()
 print('Welcome to the Beef Burger Co. menu!')
 menu()
 customer_order()
